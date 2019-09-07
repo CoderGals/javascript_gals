@@ -1,0 +1,148 @@
+1. To set the UI of a web application - two steps:
+  I.  Parsing the HTML and building the Document Object Model (DOM)
+  II. Executing JavaScript code.
+
+2. Step I. is performed when the browser is processing HTML nodes,
+and step II. is performed whenever a special type of HTML element - 
+the script element - is encountered.
+
+3. During the page-building phase, the browser can switch between these
+two steps as many times as necessary
+
+
+4. 
+  I.    Enters URL (or clicks link)
+  II.   Generates a request and sends it to the server
+  III.  Performs actions or gets a resource; sends response to client
+  IV.   Processes HTML, CSS and, JavaScript, and builds resulting
+        page
+
+5. During page construction, the browser can encounter a special
+   type of HTML element, the script element, which is used for 
+   including JavaScript code. 
+   When this happens, the browser pauses the DOM construction from 
+   HTML code and starts executing JavaScript code.
+
+
+6.  JavaScript code contained in the script file is executed
+    by the browser's JavaScript engine; for example
+    Firefox's Spidermonkey, Chrome and Opera's V8
+
+    - Because the primary purpose of JavaScript code is to provide
+      dynamicity to the page, the browser provides an API through
+      a global object that can be used by the JavaScript engine 
+      to interact with and modify the page.
+
+
+7. Global objects in JavaScript
+
+    = The primary global object that the browser exposes
+    to the JavaScript engine is the window object, which represents
+    the window in which a page is contained. 
+
+
+    - The window object is the global object through which
+      all other global objects, global variables, and browser
+      APIs are accessible.
+
+    - Important property: 
+        -> of global window object -> Document
+        -> which represents the DOM of the current page. 
+
+    - 
+
+8.  Different types of JavaScript code.
+
+  1. Function code is the code contained in a Function.
+  2. Global code is the code outside Functions.
+
+
+9.  Global code is executed automatically by the JavaScript engine, 
+    - line by  line -
+
+10.  These steps:
+     1. Building the DOM from HTML
+     2. Executing JavaScript code
+
+      Are repeated as long as there are HTML elements to process
+      and JavaScript code to execute.
+
+11.  Event handling -> Second part of the web application lifecycle: event handling
+
+
+12.  Event-handling overview
+
+    - The browser execution environment -> single-threaded execution model.
+
+    - window objects runs events.
+
+    - When an event occurs, the browser -> executes the associated event-handler function
+
+    - The browser uses an EVENT QUEUE
+
+      1. Enters URL (or clicks link)
+      2. Generates a request and sends it to the server
+      3. Performs actions or gets a resource; sends response to client
+      4. Processes HTML, CSS, and JavaScript and builds resulting page
+      5. Monitors event queue, processing any events one at a times
+        - Check for ecent at head of queue  -> is there one? -> Yes -> Process event 
+      6. Interacts with page elements
+        mouse click, mouse move, keyboard ...
+
+  - In the event-handling phase, all events (whether coming from the user, such as 
+    mouse clicks, and key presses, or coming from the server, such as Ajax events)
+    are queued up as they occur and are processed as the single thread of ececution allows
+
+
+  - the event handling process can be described with a simple flowchart: 
+
+      - The browser checks the head of the event queue.
+      - If there are no events, the browser keeps checking
+      - If there's an event at the head of the event queue, the browser takes it and
+        executes the associated handler (if one exits). 
+        During this execution, the rest of
+        the events patiently wait in the event queue for their turn to be processed.
+
+
+13.  Events are asynchronous
+
+  - The handling of events, and therefore the invocation of their handling Functions,
+    is asynchronous.
+
+  The following types of events can occur, among others:
+
+    - Browser events, such as when a page is finished loading or when it's to be unloaded
+    - Network events, such as responses coming from the server (Ajax events, server-side events)
+    - User events, such as mouse clicks, mouse moves, and key presses
+    - Timer events, such as when a timeout expires or an interval fires.
+
+
+14. The concept of event handling is central to web applications.
+
+  
+
+15. Registering event handlers
+
+    - Event handlers are functions that we want executed -> when an event occurs.
+
+    - Event-handler registration: -> In client-side web apps -> Two ways to register events:
+        1. By assigning functions to special properties
+        2. By using the build-in addEventListener method
+
+    - Example: window.onload = function() {}; -> Assigns a function to the special onload property
+      of the window object.
+
+
+      - Example: -> document.body.onclick = function(){};
+
+16.  Handling Events
+
+    - Event handling -> when an event occurs, the browser calls the associated event handler.
+    - due to the single-threaded execution model, only a single event handler can be executed at once.
+
+
+    - Once all the event handlers are finished executing, there are no new events in the
+      queue, and the event loop keeps looping, waiting for new events to handle.
+
+      - This loop will continue executing until the user closes the web application. 
+

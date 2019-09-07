@@ -1,0 +1,23 @@
+- The HTML code received by the browser is used as a blueprint for creating
+  the DOM, an internal representation of the structure of a client-side web application.
+
+- We use JavaScript code to dynamically modify the DOM to bring dynamic behavior 
+  to web applications.
+
+- The execution of client-side web applications is performed in two phases:
+
+    -- Page Building -- HTML code is processed to create the DOM, and global JavaScript
+       code is executed when script nodes are encountered. During this execution, 
+       the JavaScript code can modify the current DOM to any degree and can even
+       register event handlers - functions that are executed when a particlular event occurs
+       (for example, a mouse click or a keyboard press).
+       Registering event handlers is easy: Use the build-in addEventListener method.
+
+    -- Event handling -- Various events are processed one at a time, in the order in which
+       they were generated. The event-handling phase relies heavily on the event queue, 
+       in which all events are stored in the order in which they occurred. 
+       The event loop always checks the top of the queue for events, and if an event 
+       is found, the matching event-handler function is invoked.
+
+
+       

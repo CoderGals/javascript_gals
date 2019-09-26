@@ -1,6 +1,0 @@
-1. Why understanding functions is so crucial
-2. How functions are first-class objects
-3. The ways to define a functions
-4. The secrets of how parameters are assigned
-
-
